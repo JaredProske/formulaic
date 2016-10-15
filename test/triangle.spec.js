@@ -3,12 +3,12 @@ import TestUtils from 'react-addons-test-utils';
 import React from 'react';
 
 let triangle;
-const rise = 20, fill = '#ffffff';
+const rise = 20, fill = '#ffffff', x = 42, y = 99;
 
 describe('Given a Triangle', () => {
     describe('when we render the triangle', () => {
         before(() => {
-            triangle = TestUtils.renderIntoDocument(<Triangle rise={rise} fill={fill} />);
+            triangle = TestUtils.renderIntoDocument(<Triangle x={x} y={y} rise={rise} fill={fill} />);
         });
 
         it('should render a polygon', () => {
@@ -17,12 +17,22 @@ describe('Given a Triangle', () => {
             expect(renderedTriangle).to.have.length.above(0, 'Expected to have element with tag <polygon>');
         });
 
-        it('should fill using props', () => {
+        it('should fill', () => {
             const renderedTriangle = TestUtils.scryRenderedDOMComponentsWithTag(triangle, 'polygon')[0];
             const actualFill = renderedTriangle.getAttribute('fill');
 
             expect(actualFill).to.equal(fill);
         });
+
+        it('should set location', () => {
+            const renderedTriangle = TestUtils.scryRenderedDOMComponentsWithTag(triangle, 'polygon')[0];
+            const actualX = renderedTriangle.getAttribute('x');
+            const actualY = renderedTriangle.getAttribute('y');
+
+            expect(actualX).to.equal(x.toString());
+            expect(actualY).to.equal(y.toString());
+        });
+
     });
 });
 

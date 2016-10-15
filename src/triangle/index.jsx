@@ -6,10 +6,13 @@ export default class Triangle extends React.Component {
     }
     render() {
         const points = this.getPoints(this.props.rise, this.props.direction);
-
+        const transform = `translate(${this.props.x},${this.props.y} )`
         return (<polygon
             points={points}
-            fill={this.props.fill}>
+            fill={this.props.fill}
+            strokeWidth={1}
+            transform={transform}
+            >
         </polygon>);
     }
 
@@ -24,5 +27,7 @@ export default class Triangle extends React.Component {
 Triangle.propTypes = {
     rise: React.PropTypes.number,
     fill: React.PropTypes.string,
-    direction: React.PropTypes.string
+    direction: React.PropTypes.string,
+    x: React.PropTypes.number,
+    y: React.PropTypes.number
 };
