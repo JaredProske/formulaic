@@ -13,7 +13,7 @@ export default class App extends React.Component {
     //   <Triangle key={2} direction={'up'} rise={20} fill={Utilities.getRandomHexColor()} />
     // ];
 
-    return <svg height='1000' width='1000'>{this._getTriangles()}</svg>;
+    return <svg height='1600' width='1600'>{this._getTriangles()}</svg>;
   }
 
   _getTriangles(rise = 20, spacing = 0) {
@@ -27,7 +27,7 @@ export default class App extends React.Component {
     let bCoord = Object.assign({}, startB);
 
     bCoord.y += spacing;
-    const length = (rise + 1);
+    const length = (rise * 3 + 1);
     const triangles = [];
 
     for (let i = 0; i < rise; i++) {
