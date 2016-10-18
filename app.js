@@ -21147,7 +21147,6 @@
 	      var incrementX = rise + spacing;
 	      var numberTriangles = width;
 	      var triangles = [];
-	
 	      for (var i = 0; i < numberTriangles; i++) {
 	        if (_Utilities2.default.getRandomBool()) {
 	          var triangleProps = {
@@ -21157,7 +21156,6 @@
 	            y: coord.y,
 	            direction: directions[i % frequency]
 	          };
-	
 	          triangles.push(_react2.default.createElement(_Triangle2.default, triangleProps));
 	        }
 	        coord.x += incrementX;
@@ -21210,7 +21208,6 @@
 	        value: function render() {
 	            var points = this.getPoints(this.props.rise, this.props.direction);
 	            var transform = 'translate(' + this.props.x + ',' + this.props.y + ' )';
-	
 	            return _react2.default.createElement('polygon', {
 	                points: points,
 	                fill: this.props.fill,
@@ -21258,7 +21255,7 @@
 	        });
 	    },
 	    getRandomBool: function getRandomBool() {
-	        return Math.random() < 0.8;
+	        return Math.random() < .8;
 	    }
 	};
 

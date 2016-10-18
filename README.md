@@ -1,8 +1,0 @@
-#formulaic
-
-[![Build Status](https://travis-ci.org/JaredProske/formulaic.svg?branch=master)](https://travis-ci.org/JaredProske/formulaic)
-
-Outputs some triangles using SVG and React.
-
-Much thanks to:
-* [A modern React starter pack based on webpack](http://krasimirtsonev.com/blog/article/a-modern-react-starter-pack-based-on-webpack)
