@@ -50,6 +50,7 @@ export default class App extends React.Component {
     let incrementX = (rise + spacing);
     const numberTriangles = width;
     const triangles = [];
+
     for (let i = 0; i < numberTriangles; i++) {
       if (Utilities.getRandomBool()) {
         let triangleProps = {
@@ -59,7 +60,8 @@ export default class App extends React.Component {
           y: coord.y,
           direction: directions[i % frequency]          
         };
-        triangles.push(<Triangle {...triangleProps} />)
+
+        triangles.push(<Triangle {...triangleProps} />);
       }
       coord.x += incrementX;
     }

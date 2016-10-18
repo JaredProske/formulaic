@@ -4,6 +4,6 @@ export default {
     },
 
     getRandomBool() {
-        return Math.random() < .8;
+        return Math.random() < 0.8;
     }
 };
