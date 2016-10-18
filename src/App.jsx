@@ -16,7 +16,7 @@ export default class App extends React.Component {
     return <svg height='1600' width='1600'>{this._getTriangles()}</svg>;
   }
 
-  _getTriangles(rise = 20, spacing = 0) {
+  _getTriangles(rise = 20, spacing = 0, frequency = 2) {
 
     const startA = { x: 1, y: 1 };
     const startB = { x: 1, y: 1 + rise * 2 };
@@ -32,10 +32,10 @@ export default class App extends React.Component {
 
     for (let i = 0; i < rise; i++) {
       this
-        ._getRowOfTriangles(aCoord, length, 2, 0, rise, spacing)
+        ._getRowOfTriangles(aCoord, length, frequency, ['up', 'down'], rise, spacing)
         .forEach(t => triangles.push(t));
       this
-        ._getRowOfTriangles(bCoord, length, 2, 1, rise, spacing)
+        ._getRowOfTriangles(bCoord, length, frequency, ['down', 'up'], rise, spacing)
         .forEach(t => triangles.push(t));
       aCoord.y += incrementY;
       bCoord.y += incrementY;
@@ -46,24 +46,20 @@ export default class App extends React.Component {
     return triangles;
   }
 
-  _getRowOfTriangles(coord, width, frequency, startShape, rise, spacing) {
+  _getRowOfTriangles(coord, width, frequency, directions, rise, spacing) {
     let incrementX = (rise + spacing);
     const numberTriangles = width;
     const triangles = [];
     for (let i = 0; i < numberTriangles; i++) {
-       if (Utilities.getRandomBool()) {
-      let triangleProps = {
-        rise: rise,
-        fill: Utilities.getRandomHexColor(),
-        x: coord.x,
-        y: coord.y
-      };
-      if (i % frequency === startShape) {
-        triangleProps.direction = 'up';
-      } else {
-        triangleProps.direction = 'down';
-      }
-      triangles.push(<Triangle {...triangleProps} />)
+      if (Utilities.getRandomBool()) {
+        let triangleProps = {
+          rise: rise,
+          fill: Utilities.getRandomHexColor(),
+          x: coord.x,
+          y: coord.y,
+          direction: directions[i % frequency]          
+        };
+        triangles.push(<Triangle {...triangleProps} />)
       }
       coord.x += incrementX;
     }
