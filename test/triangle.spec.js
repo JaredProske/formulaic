@@ -26,11 +26,9 @@ describe('Given a Triangle', () => {
 
         it('should set location', () => {
             const renderedTriangle = TestUtils.scryRenderedDOMComponentsWithTag(triangle, 'polygon')[0];
-            const actualX = renderedTriangle.getAttribute('x');
-            const actualY = renderedTriangle.getAttribute('y');
-
-            expect(actualX).to.equal(x.toString());
-            expect(actualY).to.equal(y.toString());
+            const actualTransfrom = renderedTriangle.getAttribute('transform');
+            
+            expect(actualTransfrom).to.equal(`translate(${x},${y})`);
         });
 
     });

@@ -18,13 +18,11 @@ export default class App extends React.Component {
 
   _getTriangles(rise = 20, spacing = 0, frequency = 2) {
 
-    const startA = { x: 1, y: 1 };
-    const startB = { x: 1, y: 1 + rise * 2 };
-
+    const startX = 1;
     let incrementY = (rise * 4 + spacing * 2);
 
-    let aCoord = Object.assign({}, startA);
-    let bCoord = Object.assign({}, startB);
+    let aCoord = { x: startX, y: 1 };
+    let bCoord = { x: startX, y: 1 + rise * 2 };
 
     bCoord.y += spacing;
     const length = (rise * 3 + 1);
@@ -39,8 +37,8 @@ export default class App extends React.Component {
         .forEach(t => triangles.push(t));
       aCoord.y += incrementY;
       bCoord.y += incrementY;
-      aCoord.x = startA.x;
-      bCoord.x = startB.x;
+      aCoord.x = startX;
+      bCoord.x = startX;
     }
 
     return triangles;
@@ -58,7 +56,7 @@ export default class App extends React.Component {
           fill: Utilities.getRandomHexColor(),
           x: coord.x,
           y: coord.y,
-          direction: directions[i % frequency]          
+          direction: directions[i % frequency]
         };
 
         triangles.push(<Triangle {...triangleProps} />);

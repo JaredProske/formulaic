@@ -6,7 +6,7 @@ export default class Triangle extends React.Component {
     }
     render() {
         const points = this.getPoints(this.props.rise, this.props.direction);
-        const transform = `translate(${this.props.x},${this.props.y} )`;
+        const transform = `translate(${this.props.x},${this.props.y})`;
         
         return (<polygon
             points={points}
