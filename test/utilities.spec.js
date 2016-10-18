@@ -1,4 +1,4 @@
-import Utilities from '../src/Utilities/index.js';
+import Utilities from '../src/utilities/index.js';
 
 describe('Get a random hex color', () => {
     it('returns a valid hex color', () => {

@@ -1,6 +1,6 @@
 import React from 'react';
-import Triangle from './Triangle';
-import Utilities from './Utilities';
+import Triangle from './triangle';
+import Utilities from './utilities';
 
 export default class App extends React.Component {
   constructor(props) {

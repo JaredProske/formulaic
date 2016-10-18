@@ -1,4 +1,4 @@
-import Triangle from '../src/Triangle/index.jsx';
+import Triangle from '../src/triangle/index.jsx';
 import TestUtils from 'react-addons-test-utils';
 import React from 'react';
 
