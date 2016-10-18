@@ -1,4 +1,4 @@
-https://travis-ci.org/JaredProske/slapdash.svg?branch=master
+[![Build Status](https://travis-ci.org/JaredProske/slapdash.svg?branch=master)](https://travis-ci.org/JaredProske/slapdash)
 
 Outputs some triangles using SVG and React.
 
