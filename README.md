@@ -1,6 +1,6 @@
 #formulaic
 
-[![Build Status](https://travis-ci.org/JaredProske/slapdash.svg?branch=master)](https://travis-ci.org/JaredProske/slapdash)
+[![Build Status](https://travis-ci.org/JaredProske/slapdash.svg?branch=master)](https://travis-ci.org/JaredProske/formulaic)
 
 Outputs some triangles using SVG and React.
 
