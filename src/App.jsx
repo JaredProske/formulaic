@@ -8,12 +8,7 @@ export default class App extends React.Component {
   }
 
   render() {
-    // let triangles = [
-    //   <Triangle key={1} direction={'down'} rise={20} fill={Utilities.getRandomHexColor()} />,
-    //   <Triangle key={2} direction={'up'} rise={20} fill={Utilities.getRandomHexColor()} />
-    // ];
-
-    return <svg height='1600' width='1600'>{this._getTriangles()}</svg>;
+    return <svg preserveAspectRatio='none' width='1600' height='1000' >{this._getTriangles()}</svg>;
   }
 
   _getTriangles(rise = 20, spacing = 0, frequency = 2) {

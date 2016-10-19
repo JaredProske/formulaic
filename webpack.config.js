@@ -23,7 +23,7 @@ var config = {
   output: {
     path: __dirname + '/lib',
     filename: outputFile,
-    publicPath: __dirname + '/public'
+    publicPath: __dirname + '/out'
   },
   module: {
     loaders: [
@@ -51,7 +51,7 @@ var config = {
 
 if (env === 'dev') {
   new WebpackDevServer(webpack(config), {
-    contentBase: './public',
+    contentBase: './out',
     hot: true,
     debug: true
   }).listen(port, host, function (err, result) {
