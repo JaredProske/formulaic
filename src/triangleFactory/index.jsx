@@ -1,14 +1,15 @@
 import React from 'react';
 import Triangle from '../triangle';
-import Utilities from '../utilities';
+import Randomizer from '../randomizer';
 
 export default class TriangleFactory {
 
-    constructor() {
+    constructor(title = 'tube technology') {
         this._currentKey = 0;
+        this._randomizer = new Randomizer(title);
     }
-    createTriangles(rise = 20, spacing = 0, frequency = 2) {
 
+    createTriangles(rise = 20, spacing = 0, frequency = 2) {
         const startX = 1;
         let incrementY = (rise * 4 + spacing * 2);
 
@@ -41,10 +42,10 @@ export default class TriangleFactory {
         const triangles = [];
 
         for (let i = 0; i < numberTriangles; i++) {
-            if (Utilities.getRandomBool()) {
+            if (this._randomizer.getRandomBool()) {
                 let triangleProps = {
                     rise: rise,
-                    fill: Utilities.getRandomHexColor(),
+                    fill: this._randomizer.getRandomHexColor(),
                     x: coord.x,
                     y: coord.y,
                     direction: directions[i % frequency]
