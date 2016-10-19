@@ -1,4 +1,4 @@
-import App from '../src/App.jsx';
+import App from '../src/app.jsx';
 import TestUtils from 'react-addons-test-utils';
 import React from 'react';
 
