@@ -1,4 +1,4 @@
-import createGenerator from 'seedRandom';
+import createGenerator from 'seedrandom';
 
 export default class Randomizer {
     constructor(seed = 'randomSeed') {
