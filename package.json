@@ -3,7 +3,9 @@
   "version": "0.1.0",
   "description": "Outputs some triangles!",
   "main": "lib/index.js",
-  "dependencies": {},
+  "dependencies": {
+    "seedrandom": "^2.4.2"
+  },
   "author": {
     "name": "Jared Proske"
   },
