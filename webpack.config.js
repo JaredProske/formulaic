@@ -21,7 +21,7 @@ var config = {
   entry: './src/index.js',
   devtool: 'source-map',
   output: {
-    path: __dirname + '/lib',
+    path: __dirname + '/out',
     filename: outputFile,
     publicPath: __dirname + '/out'
   },

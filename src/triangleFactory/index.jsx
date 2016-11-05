@@ -2,14 +2,19 @@ import React from 'react';
 import Triangle from '../triangle';
 import Randomizer from '../randomizer';
 
-export default class TriangleFactory {
+export default class TriangleFactory extends React.Component {
 
-    constructor(title = 'tube technology') {
+    constructor(props) {
+        super(props);
         this._currentKey = 0;
-        this._randomizer = new Randomizer(title);
+        this._randomizer = new Randomizer(props.title);
     }
 
-    createTriangles(rise = 20, spacing = 0, frequency = 2) {
+    render() {
+       return <svg width='1600' height='1000' >{this._createTriangles()}</svg>;
+    }
+
+    _createTriangles(rise = 20, spacing = 0, frequency = 2) {
         const startX = 1;
         let incrementY = (rise * 4 + spacing * 2);
 
