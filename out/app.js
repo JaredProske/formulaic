@@ -21095,7 +21095,7 @@
 	  _createClass(App, [{
 	    key: 'render',
 	    value: function render() {
-	      var title = this._getQueryVariable('title');
+	      var title = this._getQueryVariable('title') || this.props.title;
 	
 	      if (!title) {
 	        return _react2.default.createElement(_titleForm2.default, null);
@@ -21124,6 +21124,10 @@
 	
 	exports.default = App;
 	;
+	
+	App.propTypes = {
+	  title: _react2.default.PropTypes.string
+	};
 
 /***/ },
 /* 171 */
@@ -26397,7 +26401,7 @@
 	
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 	
-	var _querystring = __webpack_require__(211);
+	var _querystring = __webpack_require__(208);
 	
 	var _react = __webpack_require__(1);
 	
@@ -26421,7 +26425,6 @@
 	
 	        _this.state = { value: '' };
 	        _this.handleChange = _this.handleChange.bind(_this);
-	        _this.handleSubmit = _this.handleSubmit.bind(_this);
 	        _this.handleKeyUp = _this.handleKeyUp.bind(_this);
 	        return _this;
 	    }
@@ -26430,7 +26433,7 @@
 	        key: 'handleKeyUp',
 	        value: function handleKeyUp(event) {
 	            if (event.keyCode === 13) {
-	                this.handleSubmit();
+	                location.search = (0, _querystring.stringify)({ title: this.state.title });
 	            }
 	        }
 	    }, {
@@ -26439,25 +26442,15 @@
 	            this.setState({ title: event.target.value });
 	        }
 	    }, {
-	        key: 'handleSubmit',
-	        value: function handleSubmit() {
-	            location.search = (0, _querystring.stringify)({ title: this.state.title });
-	        }
-	    }, {
 	        key: 'render',
 	        value: function render() {
 	            return _react2.default.createElement(
 	                'div',
-	                null,
+	                { style: { display: 'flex', justifyContent: 'center', marginTop: 50 } },
 	                _react2.default.createElement('input', { type: 'text',
-	                    placeholder: 'Enter title Here',
+	                    placeholder: 'enter title and press enter',
 	                    onChange: this.handleChange,
-	                    onKeyUp: this.handleKeyUp }),
-	                _react2.default.createElement(
-	                    'button',
-	                    { onClick: this.handleSubmit },
-	                    'Create'
-	                )
+	                    onKeyUp: this.handleKeyUp })
 	            );
 	        }
 	    }]);
@@ -26468,20 +26461,17 @@
 	exports.default = TitleForm;
 
 /***/ },
-/* 208 */,
-/* 209 */,
-/* 210 */,
-/* 211 */
+/* 208 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 	
-	exports.decode = exports.parse = __webpack_require__(212);
-	exports.encode = exports.stringify = __webpack_require__(213);
+	exports.decode = exports.parse = __webpack_require__(209);
+	exports.encode = exports.stringify = __webpack_require__(210);
 
 
 /***/ },
-/* 212 */
+/* 209 */
 /***/ function(module, exports) {
 
 	// Copyright Joyent, Inc. and other Node contributors.
@@ -26571,7 +26561,7 @@
 
 
 /***/ },
-/* 213 */
+/* 210 */
 /***/ function(module, exports) {
 
 	// Copyright Joyent, Inc. and other Node contributors.

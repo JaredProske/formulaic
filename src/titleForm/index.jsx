@@ -6,13 +6,12 @@ export default class TitleForm extends React.Component {
         super(props);
         this.state = { value: '' };
         this.handleChange = this.handleChange.bind(this);
-        this.handleSubmit = this.handleSubmit.bind(this);
         this.handleKeyUp = this.handleKeyUp.bind(this);
     }
 
     handleKeyUp(event) {
         if (event.keyCode === 13) {
-            this.handleSubmit();
+             location.search = stringify({ title: this.state.title });
         }
     }
 
@@ -20,21 +19,14 @@ export default class TitleForm extends React.Component {
         this.setState({ title: event.target.value });
     }
 
-    handleSubmit() {
-        location.search = stringify({ title: this.state.title });
-    }
-
     render() {
         return (
-            <div>
-                <input type='text'
-                    placeholder='Enter title Here'
-                    onChange={this.handleChange}
-                    onKeyUp={this.handleKeyUp} />
-                <button onClick={this.handleSubmit}>
-                    Create
-        </button>
-            </div>
+                <div style={{display: 'flex', justifyContent: 'center', marginTop: 50}}>
+                    <input type='text'
+                        placeholder='enter title and press enter'
+                        onChange={this.handleChange}
+                        onKeyUp={this.handleKeyUp} />
+                </div>
         );
     }
 }
