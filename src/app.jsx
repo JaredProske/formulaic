@@ -8,7 +8,7 @@ export default class App extends React.Component {
   }
 
   render() {
-    let title = this._getQueryVariable('title');
+    let title = this._getQueryVariable('title') || this.props.title;
 
     if (!title) {
       return <TitleForm />;
@@ -28,3 +28,8 @@ export default class App extends React.Component {
     return false;
   }
 };
+
+App.propTypes = {
+    title: React.PropTypes.string
+};
+

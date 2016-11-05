@@ -7,7 +7,7 @@ let app;
 describe('Given an instance of the App', () => {
   describe('when we render the app', () => {
     before(() => {
-      app = TestUtils.renderIntoDocument(<App/>);
+      app = TestUtils.renderIntoDocument(<App title='title'/>);
     });
     it('should render a svg container', () => {
       let svgContainer = TestUtils.scryRenderedDOMComponentsWithTag(app, 'svg');
