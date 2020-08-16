@@ -1,10 +1,14 @@
 import React from 'react';
 import './App.css';
 
+import {TitleProvider} from './components/TitleContext';
+import { TitleForm } from './components/TitleForm';
+
 function App() {
   return (
-    <div className="App">
-    </div>
+    <TitleProvider >
+      <TitleForm/>
+    </TitleProvider>
   );
 }
 
