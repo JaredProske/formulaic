@@ -1,5 +1,8 @@
 import React, { useReducer } from 'react';
-
+import queryString from 'query-string';
+import { createBrowserHistory } from 'history';
+ 
+const history = createBrowserHistory();
 type Action = { type: 'update', payload?: string }
 type State = { title?: string; }
 const TitleStateContext = React.createContext<State | undefined>(undefined);
@@ -8,6 +11,8 @@ const TitleDispatchContext = React.createContext<React.Dispatch<Action>| undefin
 function titleReducer(state: State, action: Action) {
   switch (action.type) {
     case 'update':
+      const titleQuery = queryString.stringify({title:action.payload});
+      history.replace({pathname: "?", search:titleQuery});
       return { title: action.payload };
     default:
       throw new Error(`Unhandled action type: ${action.type}`);
